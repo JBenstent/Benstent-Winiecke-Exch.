@@ -34,11 +34,13 @@ INSTALLED_APPS = [
     'apps.exchange_platform',
     'django.contrib.admin',
     'django.contrib.auth',
+    'async_include',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

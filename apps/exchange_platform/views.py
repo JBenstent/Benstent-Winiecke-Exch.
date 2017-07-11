@@ -5,3 +5,6 @@ from . models import *
 def index(request):
     print("*"*50)
     return render(request, 'exchange_platform/index.html')
+
+def baseball(request):
+    return render(request, 'exchange_platform/baseball.html')
