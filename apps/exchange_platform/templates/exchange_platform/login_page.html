@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <!-- {# Load the tag library #}
+      {% load bootstrap3 %}
+
+      {# Load CSS and JavaScript #}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
+
+      {# Display django.contrib.messages as Bootstrap alerts #}
+      {% bootstrap_messages %} -->
+    <style>
+    .alert {
+      font-size: 18px;
+      color: red;
+    }
+    .pageheader{
+      font-size: 30px;
+    }
+    .login{
+      margin-left: 50px;
+      height:400px;
+      width: 300px;
+      border-style: groove;
+      border-width: thick;
+      border-color: orange;
+      display: inline-block;
+      background-color: green;
+      vertical-align: top;
+    }
+    .register{
+      margin-left: 50px;
+      height:525px;
+      width: 350px;
+      border-style: groove;
+      border-width: thick;
+      border-color: orange;
+      background-color: green;
+      display: inline-block;
+    }
+    body {
+      background-color: black;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <center>
+        <h1>The Betting Exchange</h1>
+    </center>
+    </div>
+    <div class="login">
+      <center>
+    <h1>Login:</h1>
+    <form action="{% url 'loginpage' %}" method="POST">
+      {% csrf_token %}
+      Email:<br>
+      <input type="text" name="email" ><br>
+      Password:<br>
+      <input type="password" name="password"><br><br>
+      <input type= "submit" name="Submit" value= "Login"><br><br>
+      Not a Member, Click to Register:<br>
+      <input type="submit" name="Submit"><br><br>
+    </form>
+    {% if login_messages %}
+      {% for m in messages %}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <h2>{{m}}</h2>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </center>
+  </div>
+    <div class = "register">
+      <center>
+      <h1>Register</h1>
+      <h3>Fill out the following form:</h3>
+      <form  action="{% url 'registerpage' %}" method="POST">
+        {% csrf_token %}
+        First Name:<br>
+        <input type="text" name="first_name"><br>
+        aka:<br>
+        <input type="text" name="aka"><br>
+        Last Name:<br>
+        <input type="text" name="last_name"><br>
+        Email:<br>
+        <input type="text" name="email"><br>
+        Password:<br>
+        <input type="password" name="password"><br>
+        Confirm Password:<br>
+        <input type="password" name="confirm_password"><br><br>
+        <input type="submit" name="Submit"><br><br>
+
+      </form>
+      {% if registration_messages %}
+        {% for m in messages %}
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <h3>{{m}}</h3>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </center>
+    </div>
+  </body>
+</html>
