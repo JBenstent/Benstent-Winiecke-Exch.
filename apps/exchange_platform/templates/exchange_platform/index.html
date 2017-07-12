@@ -2,58 +2,74 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.1.1.min.js"
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous"></script>
     <title>Landing Page</title>
+    <style>
+    body {
+    background-color: #202020;
+    }
+
+
+
+.parallax {
+    /* The image used */
+    background-image: url("https://4.bp.blogspot.com/-3aBTdvTvgqM/VNcb2gxRaTI/AAAAAAABccs/PPbDPAL-6Bo/s0/Bitcoin_UHD.jpg");
+
+    /* Set a specific height */
+    min-height: 800px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: hard-light;
+}
+</style>
   </head>
   <body>
 
-    <h1>Welcome Betting Exchange</h1>
-
-
-<!-- THE COMMENTED CODE BELOW ALLOWS FOR AUTOMATIC HTML PAGE LOAD. NEEDS NESTED IF STATESMENTS. UNCOMMENT TO SEE HTML -->
-
-    {% load async_include %}
-    {% async_include "exchange_platform/football.html"  %}
-
-
-    <select size="1" name="links" onchange="window.location.href=this.value;">
-      <option selected disabled>Select a Sport</option>
-      <option value="/football">Football</option>
-    </select>
-    <hr />
 
 
 
-    <script type="text/javascript">
-    $(document).ready( function() {
+</head>
+
+<script type="text/javascript">
+$(document).ready( function() {
 
 
-      $( document ).ajaxStart(function() {});
+  $( document ).ajaxStart(function() {});
+  $( ".football").click(function() {
+    $( ".result" ).load( "/football" );
+  });
+  $( ".baseball").click(function() {
+    $( ".result" ).load( "/baseball" );
+  });
+});
+</script>
 
-      $( ".football").click(function() {
-        $( ".result" ).load( "/football" );
-      });
-      $( ".baseball").click(function() {
-        $( ".result" ).load( "/baseball" );
-      });
-    });
-    </script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"><kbd>BIT-X</kbd></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#"><div class="football">Football</div></a></li>
+    </ul>
+  </div>
+</nav>
 
+<div class="result"></div>
+<div class="parallax">
+</div>
 
-    <div class="football">ClICK THIS FOR FOOTBALL HTML</div>
-    <br>
-    <div class="baseball">CLICK THIS FOR BASEBALL HTML</div>
-    <hr>
-    <div class="result"></div>
-
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'football' %}">Football</a>
-=======
-
-
+<em class="h1"><font color="white">BETA TESTING</font></em>
 
 
 
