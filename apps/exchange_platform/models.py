@@ -1,6 +1,5 @@
 from django.db import models
-<<<<<<< HEAD
-=======
+
 
 # Create your models here.
 class User(models.Model):
@@ -11,4 +10,3 @@ class User(models.Model):
     password=models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
->>>>>>> 63a8fe92f81eb590b80f6f35c1265fcbf6769994
