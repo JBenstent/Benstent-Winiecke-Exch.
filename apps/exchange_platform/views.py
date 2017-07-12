@@ -9,10 +9,10 @@ def index(request):
     print("*"*50)
     return render(request, 'exchange_platform/index.html')
 
-<<<<<<< HEAD
+
 def baseball(request):
     return render(request, 'exchange_platform/baseball.html')
-=======
+
 def login_page(request):
     context = {}
     if 'invalid_login' in request.session:
@@ -85,4 +85,3 @@ def register(request):
 def logout(request):
     request.session.clear()
     return redirect('/')
->>>>>>> 63a8fe92f81eb590b80f6f35c1265fcbf6769994
